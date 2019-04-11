@@ -1,3 +1,5 @@
+import { isVarFunction } from './utils';
+
 export default function transformValueAST(root, customProperties) {
 	if (root.nodes && root.nodes.length) {
 		root.nodes.slice().forEach(child => {
@@ -40,12 +42,6 @@ function retransformValueAST(root, customProperties, withoutProperty) {
 
 	return transformValueAST(root, nextCustomProperties);
 }
-
-// match var() functions
-const varRegExp = /^var$/i;
-
-// whether the node is a var() function
-const isVarFunction = node => node.type === 'func' && varRegExp.test(node.value) && Object(node.nodes).length > 0;
 
 // return an array with its nodes cloned, preserving the raw
 const asClonedArrayWithBeforeSpacing = (array, beforeSpacing) => {
