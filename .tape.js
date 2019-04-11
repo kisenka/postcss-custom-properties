@@ -8,6 +8,12 @@ module.exports = {
 			preserve: false
 		}
 	},
+	'basic:fallback': {
+		message: 'supports { fallback: true } usage',
+		options: {
+			fallback: true
+		}
+	},
 	'basic:import': {
 		message: 'supports { importFrom: { customProperties: { ... } } } usage',
 		options: {
